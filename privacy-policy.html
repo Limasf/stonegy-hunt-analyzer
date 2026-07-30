@@ -1,0 +1,339 @@
+<title>Política de Privacidade — Stonegy Hunt Analyzer</title>
+<style>
+  :root {
+    --bg: #15181c;
+    --surface: #1c2025;
+    --surface-2: #22262c;
+    --border: #34383e;
+    --text: #ddd7ca;
+    --text-dim: #96907f;
+    --accent: #c9a227;
+    --accent-dim: rgba(201, 162, 39, .14);
+    --serif: ui-serif, Georgia, 'Times New Roman', Times, serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  :root[data-theme="light"] {
+    --bg: #f6f2ea;
+    --surface: #ffffff;
+    --surface-2: #f1ece1;
+    --border: #e3dcc9;
+    --text: #2b2620;
+    --text-dim: #746d5c;
+    --accent: #8f6b0e;
+    --accent-dim: rgba(143, 107, 14, .10);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f6f2ea;
+      --surface: #ffffff;
+      --surface-2: #f1ece1;
+      --border: #e3dcc9;
+      --text: #2b2620;
+      --text-dim: #746d5c;
+      --accent: #8f6b0e;
+      --accent-dim: rgba(143, 107, 14, .10);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+  header.doc-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 28px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mark {
+    width: 44px; height: 44px; border-radius: 11px;
+    background: linear-gradient(155deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--sans);
+    font-weight: 800;
+    color: var(--accent);
+    font-size: 18px;
+    flex: 0 0 auto;
+  }
+  .doc-head h1 {
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .1px;
+    margin: 0 0 4px;
+    text-wrap: balance;
+  }
+  .doc-head .meta {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--text-dim);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .summary {
+    font-family: var(--sans);
+    font-size: 14.5px;
+    line-height: 1.65;
+    background: var(--accent-dim);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 16px 18px;
+    margin-bottom: 36px;
+    color: var(--text);
+  }
+  .summary b { color: var(--accent); }
+
+  nav.toc {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--text-dim);
+    margin-bottom: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+  nav.toc a {
+    color: var(--text-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--border);
+  }
+  nav.toc a:hover { color: var(--accent); border-color: var(--accent); }
+
+  section { margin-bottom: 38px; }
+  section h2 {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  section p { margin: 0 0 14px; font-size: 16px; }
+  section p:last-child { margin-bottom: 0; }
+  section ul { margin: 0 0 14px; padding-left: 22px; }
+  section li { margin-bottom: 8px; font-size: 16px; }
+  section li:last-child { margin-bottom: 0; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 5px;
+  }
+  a { color: var(--accent); }
+
+  .not-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 20px;
+    font-family: var(--sans);
+    font-size: 14px;
+    list-style: none;
+    padding: 0;
+  }
+  .not-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+  .not-list li::before {
+    content: "✕";
+    color: var(--text-dim);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  @media (max-width: 520px) {
+    .not-list { grid-template-columns: 1fr; }
+  }
+
+  table.perms {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: 13.5px;
+  }
+  table.perms th, table.perms td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  table.perms th {
+    color: var(--text-dim);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 10.5px;
+    letter-spacing: .5px;
+  }
+  table.perms td code { white-space: nowrap; }
+  .perms-wrap { overflow-x: auto; }
+
+  footer.doc-foot {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--text-dim);
+  }
+</style>
+
+<div class="wrap">
+  <header class="doc-head">
+    <div class="mark">ST</div>
+    <div>
+      <h1>Política de Privacidade — Stonegy Hunt Analyzer</h1>
+      <div class="meta">Última atualização: 30 de julho de 2026 · Versão da extensão: 1.0.0</div>
+    </div>
+  </header>
+
+  <div class="summary">
+    <b>Resumo:</b> o Stonegy Hunt Analyzer não coleta, não armazena em servidor
+    nenhum e não compartilha nenhum dado seu. Tudo que ele processa fica
+    guardado localmente no seu próprio navegador e é apagado quando você
+    desinstala a extensão ou clica em "Reset". Não há conta, login, analytics
+    ou comunicação com terceiros.
+  </div>
+
+  <nav class="toc">
+    <a href="#o-que-e">O que é a extensão</a>
+    <a href="#dados-acessados">Dados acessados</a>
+    <a href="#armazenamento">Onde os dados ficam</a>
+    <a href="#nao-fazemos">O que não fazemos</a>
+    <a href="#permissoes">Permissões</a>
+    <a href="#controle">Controle e retenção</a>
+    <a href="#alteracoes">Alterações</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <section id="o-que-e">
+    <h2>O que é a extensão</h2>
+    <p>
+      Stonegy Hunt Analyzer é uma extensão de navegador não oficial para o jogo
+      <a href="https://stonegy-online.com" target="_blank" rel="noopener">Stonegy</a>.
+      Ela mostra, num painel sobreposto à página do jogo, o dano, o DPS e a
+      porcentagem de participação de cada personagem da sua party durante uma
+      hunt — informação que o próprio jogo já calcula e exibe na tela (nos
+      números de dano desenhados no jogo), mas sem consolidar num resumo por
+      personagem. A extensão não é desenvolvida, operada ou endossada pela
+      equipe do Stonegy.
+    </p>
+  </section>
+
+  <section id="dados-acessados">
+    <h2>Dados acessados</h2>
+    <p>
+      A extensão só é ativada em páginas de <code>stonegy-online.com</code>.
+      Nelas, ela lê passivamente os dados que o seu navegador já recebe do
+      próprio jogo pela conexão WebSocket (mensagens de combate, nomes de
+      personagem, tipo de dano) para calcular os totais mostrados no painel.
+    </p>
+    <p>
+      Ela nunca envia, altera ou bloqueia nenhuma mensagem — só observa o que
+      o seu cliente do jogo já receberia de qualquer forma.
+    </p>
+  </section>
+
+  <section id="armazenamento">
+    <h2>Onde os dados ficam</h2>
+    <p>
+      Os totais de dano da sessão atual ficam guardados só localmente, usando a
+      API <code>chrome.storage.local</code> do navegador — o mesmo mecanismo
+      que qualquer extensão usa para lembrar preferências. Isso serve só para a
+      sessão sobreviver a um recarregamento de página no meio de uma hunt.
+    </p>
+    <p>
+      Nenhum dado sai do seu navegador. Não existe servidor, backend ou banco
+      de dados operado por nós — a extensão não faz nenhuma requisição de rede
+      própria, em nenhuma hipótese.
+    </p>
+  </section>
+
+  <section id="nao-fazemos">
+    <h2>O que não fazemos</h2>
+    <ul class="not-list">
+      <li>Não coletamos dados pessoais</li>
+      <li>Não usamos analytics ou telemetria</li>
+      <li>Não compartilhamos nada com terceiros</li>
+      <li>Não vendemos dado nenhum</li>
+      <li>Não exigimos conta ou login</li>
+      <li>Não usamos cookies</li>
+      <li>Não acessamos outros sites</li>
+      <li>Não lemos o Combat Log/chat do jogo</li>
+    </ul>
+  </section>
+
+  <section id="permissoes">
+    <h2>Permissões usadas</h2>
+    <div class="perms-wrap">
+      <table class="perms">
+        <tr><th>Permissão</th><th>Para quê</th></tr>
+        <tr>
+          <td><code>storage</code></td>
+          <td>Guardar localmente o progresso da sessão atual (dano por
+            personagem), pra sobreviver a um F5 no meio da hunt. Nunca sai do
+            seu navegador.</td>
+        </tr>
+        <tr>
+          <td><code>host_permissions</code><br><code>stonegy-online.com</code></td>
+          <td>Rodar o script que lê o WebSocket do jogo e desenha o painel —
+            só nesse domínio, nenhum outro site é acessado.</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="controle">
+    <h2>Controle e retenção</h2>
+    <p>
+      O botão "Reset" do painel apaga os dados da sessão atual a qualquer
+      momento. Sessões locais com mais de 4 horas são descartadas
+      automaticamente ao carregar a página, pra nunca misturar dados de uma
+      hunt antiga. Desinstalar a extensão remove todos os dados guardados por
+      ela, sem deixar nenhum resíduo.
+    </p>
+  </section>
+
+  <section id="alteracoes">
+    <h2>Alterações a esta política</h2>
+    <p>
+      Se esta política mudar, a data no topo da página será atualizada. Como a
+      extensão não tem como notificar você diretamente, recomendamos revisar
+      esta página periodicamente se tiver dúvidas.
+    </p>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p>
+      Dúvidas sobre esta política ou sobre a extensão: <code>[e-mail de contato a definir]</code>.
+    </p>
+  </section>
+
+  <footer class="doc-foot">
+    Stonegy Hunt Analyzer é um projeto independente, sem vínculo com a Stonegy
+    ou seus desenvolvedores.
+  </footer>
+</div>
